@@ -126,7 +126,6 @@
                                  <tr>
                                     <td style="border: 3px solid white; color: white;">High</td>
                                     <td style="border: 3px solid white; color: white;"><input type="button" onclick="counter(this.parentElement, 1)" value="+" class="add"><input class="counter" id="input_tsg" type="number" name="tsg" min="0" style="background-color: black; color: white;border: none; text-align: center;" readonly="" value="0" size="2" maxlength="2"><input type="button" onclick="counter(this.parentElement, -1)" value="-" class="subtract"></td>
-                                    <td style="border: 3px solid white; color: white;"><input type="button" onclick="counter(this.parentElement, 1)" value="+" class="add"><input class="counter" id="input_tsg" type="number" name="tsg" min="0" style="background-color: black; color: white;border: none; text-align: center;" readonly="" value="0" size="2" maxlength="2"><input type="button" onclick="counter(this.parentElement, -1)" value="-" class="subtract"></td>
                                  </tr>
                                  <!-- <tr>
                                     <td style="border: 3px solid white; color: white;">Mid</td>
@@ -135,7 +134,6 @@
                                  </tr> -->
                                  <tr>
                                     <td style="border: 3px solid white; color: white;">Low</td>
-                                    <td style="border: 3px solid white; color: white;"><input type="button" onclick="counter(this.parentElement, 1)" value="+" class="add"><input class="counter" id="input_tsg" type="number" name="tsg" min="0" style="background-color: black; color: white;border: none; text-align: center;" readonly="" value="0" size="2" maxlength="2"><input type="button" onclick="counter(this.parentElement, -1)" value="-" class="subtract"></td>
                                     <td style="border: 3px solid white; color: white;"><input type="button" onclick="counter(this.parentElement, 1)" value="+" class="add"><input class="counter" id="input_tsg" type="number" name="tsg" min="0" style="background-color: black; color: white;border: none; text-align: center;" readonly="" value="0" size="2" maxlength="2"><input type="button" onclick="counter(this.parentElement, -1)" value="-" class="subtract"></td>
                                  </tr>
                               </tbody>
@@ -205,7 +203,6 @@
                                  <tr>
                                     <td style="border: 3px solid white; color: white;">High</td>
                                     <td style="border: 3px solid white; color: white;"><input type="button" onclick="counter(this.parentElement, 1)" value="+" class="add"><input class="counter" id="input_tsg" type="number" name="tsg" min="0" style="background-color: black; color: white;border: none; text-align: center;" readonly="" value="0" size="2" maxlength="2"><input type="button" onclick="counter(this.parentElement, -1)" value="-" class="subtract"></td>
-                                    <td style="border: 3px solid white; color: white;"><input type="button" onclick="counter(this.parentElement, 1)" value="+" class="add"><input class="counter" id="input_tsg" type="number" name="tsg" min="0" style="background-color: black; color: white;border: none; text-align: center;" readonly="" value="0" size="2" maxlength="2"><input type="button" onclick="counter(this.parentElement, -1)" value="-" class="subtract"></td>
                                  </tr>
                                  <!-- <tr>
                                     <td style="border: 3px solid white; color: white;">Mid</td>
@@ -214,7 +211,6 @@
                                  </tr> -->
                                  <tr>
                                     <td style="border: 3px solid white; color: white;">Low</td>
-                                    <td style="border: 3px solid white; color: white;"><input type="button" onclick="counter(this.parentElement, 1)" value="+" class="add"><input class="counter" id="input_tsg" type="number" name="tsg" min="0" style="background-color: black; color: white;border: none; text-align: center;" readonly="" value="0" size="2" maxlength="2"><input type="button" onclick="counter(this.parentElement, -1)" value="-" class="subtract"></td>
                                     <td style="border: 3px solid white; color: white;"><input type="button" onclick="counter(this.parentElement, 1)" value="+" class="add"><input class="counter" id="input_tsg" type="number" name="tsg" min="0" style="background-color: black; color: white;border: none; text-align: center;" readonly="" value="0" size="2" maxlength="2"><input type="button" onclick="counter(this.parentElement, -1)" value="-" class="subtract"></td>
                                  </tr>
                               </tbody>
@@ -227,7 +223,7 @@
                      </tr>
                      <tr>
                         <!-- <td class="title">Picked up <strong>cones</strong> from <strong>floor (tipped)</strong>&nbsp;</td> -->
-                        <td class="field"><label class="checkboxlabel"><input id="input_pcf" type="checkbox" class="checkboxlabeled" name="pcf"></label><p>Single HP</p></td>
+                        <td class="field"><label class="checkboxlabel"><input id="input_pcf" type="checkbox" class="checkboxlabeled" name="pcf"></label><p>Ground</p></td>
                      </tr>
                      <tr>
                         <!-- <td class="title">Picked up from <strong>HP</strong>&nbsp;</td> -->
@@ -242,7 +238,7 @@
                         <!-- <td class="comments" colspan="2"><p>Comments</p><div class="break"></div><textarea class="comment"onchange="replaceSemicolon(this.value)" value=""></textarea></td> -->
                      </tr>
                      <tr>
-                        <td colspan="2" style="text-align: center;" class="title">Docking Timer</td>
+                        <td colspan="2" style="text-align: center;" class="title">Hanging Timer</td>
                      </tr>
                      <tr>
                         <td colspan="2" style="text-align: center;"><input id="start_dt" type="button" onclick="timer(this.parentElement)" value="Start" class="start"><input class="timer" id="input_dt" type="number" name="dt" style="background-color: black; color: white;border: none; text-align: center;" readonly="" value="0" min="0"><input id="clear_dt" type="button" onclick="resetTimer(this.parentElement)" value="Reset" class="reset"><br><input id="subtractone_dt" type="button" onclick="subtractSecond(this.parentElement)" value="-1" class="subtractone"><input id="addone_dt" type="button" onclick="addSecond(this.parentElement)" value="+1" class="addone"></td>
@@ -266,10 +262,10 @@
                         <td class="title">Final Status&nbsp;</td>
                         <td id="input1_fs" class="field">
                            <label class="radiolabel"><input id="input_fs_e" type="radio" class="radiolabeled" classname="radio" name="fs" value="e"></label>
-                           <p class="radioelement">Engaged<br></p>
+                           <p class="radioelement">Climbed<br></p>
                            <div class="break"></div>
                            <label class="radiolabel"><input id="input_fs_d" type="radio" class="radiolabeled" classname="radio" name="fs" value="d"></label>
-                           <p class="radioelement">Only Docked</p>
+                           <p class="radioelement">Touching ground</p>
                            <div class="break"></div>
                            <label class="radiolabel"><input id="input_fs_p" type="radio" class="radiolabeled" classname="radio" name="fs" value="p"></label>
                            <p class="radioelement">Parked</p>
@@ -281,11 +277,11 @@
                         </td>
                      </tr>
                      <tr>
-                        <td class="title">Failed attempt at docking&nbsp;</td>
+                        <td class="title">Failed attempt at climbing&nbsp;</td>
                         <td class="field"><label class="checkboxlabel"><input id="input_fsd" type="checkbox" class="checkboxlabeled" name="fsd"></label></td>
                      </tr>
                      <tr>
-                        <td class="title">Total # of alliance robots docked/engaged&nbsp;</td>
+                        <td class="title">Total # of alliance robots climbed&nbsp;</td>
                         <td class="field"><input type="button" onclick="counter(this.parentElement, -1);" class="subtract" value="-"><input class="counter" id="input_dn" type="number" name="dn" max="3" onchange="if(value<0) value=0; if(value>3) value=3;" min="0" style="background-color: black; color: white;border: none; text-align: center;" readonly="" value="0" size="2" maxlength="2"><input type="button" onclick="counter(this.parentElement, 1)" value="+" class="add"></td>
                      </tr>
                      <tr>
