@@ -1,0 +1,730 @@
+@font-face {
+    font-family: Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    src: local('Helvetica, sans-serif'), url('../fonts/alex.woff') format('woff');
+    src: url("../fonts/Helvetica, sans-serifv3.ttf") format('truetype');
+}
+
+html, body{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    color: white;
+    background-color: var(--bobcatmaroon);
+}
+
+
+
+#postmatch_table{
+    font-size: 1rem;
+
+}
+
+.timer {
+    width: 3.5rem;
+}
+
+#postmatch_table {
+
+    font-family : -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
+    text-align: center;
+    color: white;
+    /* font-style: bold; */
+    letter-spacing: 1px;
+    border-width: 4px;
+    border-color: white;
+    justify-content: center ;
+}
+
+#teleopscoring{
+    align-items: center;
+    text-align: center;
+    vertical-align: middle;
+      font-weight: bold;
+    font-size:1.3rem;
+    
+}
+
+#teleopscoring td{
+    vertical-align: center;
+    vertical-align: middle;
+/* display: flex; */
+}
+
+#teleopscoring input[type="number"]{
+    width: 3rem;
+    display: block;
+margin: auto;
+
+}
+
+
+
+* input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+#teleopscoring input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+#input_dn input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+#input_dn input[type=number] {
+  -moz-appearance: textfield;
+}
+
+#input_dn{
+    -moz-appearance: textfield;
+  }
+
+  #input_dt input[type=number] {
+    -moz-appearance: textfield;
+  }
+  
+  #input_dt{
+      -moz-appearance: textfield;
+    }
+  
+
+#auton_table, #endgame_table, #teleop_table {
+    font-family : -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
+    color: white;
+    font-style: bold;
+    letter-spacing: 1px;
+    border-width: 4px;
+    border-color: white;
+    background-color: var(--bobcatmaroon);
+}
+
+#auton_table, #endgame_table{
+    font-size: 1rem;
+}
+
+#teleop_table{
+font-size: 0.95rem;
+}
+
+#auton_table{
+    text-align:left;
+}
+
+label {
+    background: rgba(220, 187, 0, 0.962);
+    color:lightgray;
+    border-radius:8px;   
+    padding:1em;
+    margin-right:auto;
+    cursor:pointer;
+    transition-duration:200ms;
+    /* padding-bottom: 50px;
+    margin-bottom: 50px; */
+    width: 4rem;
+    height: 2.5rem;
+
+}
+
+.radioelement{
+    margin-right:auto;
+    padding:1em;
+}
+
+/* .radio input {
+        margin-right:500em;   
+    } */
+
+/* label:hover {
+    background:darkgray;   
+    color:#2e2e2e;
+} */
+
+/* label:checked{
+    background:blue;   
+    color:#2e2e2e;   
+} */
+
+.start, .addone{
+    background: green;
+    color:lightgray;
+    border-radius:8px;   
+    /* padding:1em; */
+    margin-right:1em;
+    margin-bottom:0.5rem;
+    cursor:pointer;
+    transition-duration:200ms;
+    /* padding-bottom: 50px;
+    margin-bottom: 50px; */
+    width: 4rem;
+    height: 2.5rem; 
+}
+
+
+input[type="checkbox"] {
+
+    background-color: #fff;
+    margin: auto;
+    font: inherit;
+    color: currentColor;
+    width: 1.5em;
+    height: 1.5em;
+    border: 0.15em solid currentColor;
+    transform: translateY(-0.35em);
+    display: grid;
+    place-content: center;
+  }
+
+
+.stop{
+    background: red;
+    color:lightgray;
+    border-radius:8px;   
+    /* padding:1em; */
+    margin-right:1em;
+    margin-bottom:0.5rem;
+    cursor:pointer;
+    transition-duration:200ms;
+    /* padding-bottom: 50px;
+    margin-bottom: 50px; */
+    width: 4rem;
+    height: 2.5rem; 
+}
+
+.reset, .subtractone{
+    background: red;
+    color:lightgray;
+    border-radius:8px;   
+    /* padding:1em; */
+    margin-left:1em;
+    margin-bottom:0.5rem;
+    cursor:pointer;
+    transition-duration:200ms;
+    /* padding-bottom: 50px;
+    margin-bottom: 50px; */
+    width: 4rem;
+    height: 2.5rem;
+}
+
+:root {
+    --form-control-color: #900000;
+    --bobcatgold: #ffcc00;
+    --bobcatmaroon: #900000;
+  }
+
+  *,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+.form-control {
+    font-family: system-ui, sans-serif;
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 1.1;
+    display: grid;
+    grid-template-columns: 1em auto;
+    gap: 0.5em;
+  }
+
+input[type="text"]{
+    width:50%;
+    position: absolute;
+    margin: auto;
+}
+#prematch input[type="number"]{
+    width: 50%;
+    position: absolute;
+    margin: auto;
+}
+
+input[type="checkbox"]{
+    width: 1.5em;
+height: 1.5em;
+}
+
+.field input[type="button"]{
+    height: 3rem;
+    width: 4rem;
+}
+
+input[type="checkbox"]{ 
+    /* Add if not using autoprefixer */
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #fff;
+    margin: auto;
+    font: inherit;
+    color: currentColor;
+    width: 1.5em;
+    height: 1.5em;
+    border: 0.15em solid currentColor;
+    transform: translateY(-0.35em);
+    display: grid;
+    place-content: center;
+}
+
+input[type="checkbox"]::before {
+    content: "";
+    width: 1em;
+    height: 1em;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em var(--form-control-color);
+  }
+
+  
+  input[type="checkbox"]:checked::before {
+    transform: scale(1);
+  }
+
+
+/* Hide the browser's default checkbox */
+/* .checkboxlabel input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+} */
+
+/* Create a custom checkbox */
+/* .checkboxlabel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+} */
+
+/* On mouse-over, add a grey background color */
+/* .container:hover input ~ .checkmark {
+  background-color: #ccc;
+} */
+
+/* When the checkbox is checked, add a blue background */
+/* .container input:checked ~ .checkboxlabel {
+  background-color: var(--bobcatmaroon);
+} */
+
+/* Create the checkmark/indicator (hidden when not checked) */
+/* .checkboxlabel:after {
+  content: "";
+  position: absolute;
+  display: none;
+} */
+
+/* Show the checkmark when checked */
+/* input[type="checkbox"]:checked ~ .checkboxlabel:after {
+  display: block;
+} */
+
+
+.checkboxlabel:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+
+
+
+input[type="radio"]{ 
+      /* Add if not using autoprefixer */
+      -webkit-appearance: none;
+      appearance: none;
+      background-color: #fff;
+      margin: auto;
+      font: inherit;
+      color: currentColor;
+      width: 1.5em;
+      height: 1.5em;
+      border: 0.15em solid currentColor;
+      border-radius: 50%;
+      transform: translateY(-0.35em);
+      display: grid;
+      place-content: center;
+}
+
+input[type="radio"]::before {
+    content: "";
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em var(--form-control-color);
+  }
+
+  
+  input[type="radio"]:checked::before {
+    transform: scale(1);
+  }
+  .form-control + .form-control {
+    margin-top: 1em;
+  }
+
+
+
+input[type="checkbox"]{ 
+
+    margin: auto;
+    display: flex;
+
+} 
+
+
+
+
+.field *{
+    text-align:center;
+}
+
+.add{
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 2.3rem;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius:8px;   
+
+}
+
+.add:hover {
+    background-color: #3e8e41; /* Green */
+    color: white;
+}
+
+.subtract{
+    background-color: #f44336; /* Red */
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 2.3rem;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius:8px;   
+
+}
+
+.subtract:hover {
+    background-color: #e60000; /* Red */
+    color: white;
+}
+
+.button {
+    font-family: Helvetica, sans-serif;
+    font-size: 1
+    2rem;
+}
+
+#autonHeader, #endgameHeader, #teleopHeader1, #teleopHeader2{
+    color: white;
+    border-color: black;
+    border-width: 4px;
+}
+
+#postmatchHeader{
+    border-width: 4px;
+    border-color: white;
+}
+
+#prematchHeader1, #prematchHeader2{
+    color: white;
+    border-color: white;
+    border-width: 4px;
+}
+
+#qrHeader1, #qrHeader2 {
+    color: black;
+}
+    
+.field-image {
+    margin: 2vw;
+}
+
+.field-image-src{  
+    background-position: center;
+    border: 1px solid;
+}
+
+.main-panel{
+    display: none;
+    height: 100%;
+    min-height: 100%;
+    width: 100vw;
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: white;
+    background-color: var(--bobcatmaroon);
+    font-family : -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
+    text-align: justify;
+}
+
+
+
+#prematch{
+    display: table;
+}
+
+#auton{
+    background-color: var(--bobcatmaroon);
+}
+
+#teleop{
+    background-color: var(--bobcatmaroon);
+}
+
+#endgame{
+    width:100vw;
+    background-color: var(--bobcatmaroon);
+}
+
+#postmatch{
+    background-color: var(--bobcatmaroon);
+}
+
+#qr-code{
+  text-align: center;
+}
+
+textarea {
+
+    height: 150px;
+    width: 100%;
+
+}
+
+.comments p{
+    margin-bottom:6px;
+}
+
+.postmatch_table, endgame_table{
+    font-size: 1.5rem;
+}
+
+h1{
+    font-family: Helvetica, sans-serif;
+    text-align: center;
+    border-style: groove;
+    border-color: white; 
+    border-width: 2px;
+    font-size: 40px;
+    padding: 10px; 
+    font-weight: 350;
+}
+
+#page2, #page4 {
+    color: black;
+}
+
+#auton .field{
+    width:85%;
+    align-content: space-between;
+}
+
+#endgame .title{
+    width:10%;
+}
+
+h2{
+    font-family: Helvetica, sans-serif;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 300;
+    font-style: italic;
+}
+
+.match-label{
+    text-align: center;
+}
+
+.half-button-l{
+    width: 48%;
+    margin: 1vw;
+    height: 100%;
+    font: roboto;
+}
+
+.half-button-r{
+    flex-grow: 1;
+    height: 100%;
+    width: 48%;
+    margin: 1vw;
+    font: roboto;
+}
+
+.half-button-container{
+    display: flex;
+}
+
+#nextButton1, #nextButton2, #nextButton9, #nextButton10, .clearForm, .submitForm, #displayButton, #copyButton {
+    font-family: Helvetica, sans-serif; 
+    padding: 10px;
+    background-color:var(--bobcatgold);
+    text-decoration: none;
+    display: inline-block;
+}
+
+#nextButton3, #nextButton4, #nextButton5, #nextButton6, #nextButton7, #nextButton8 {
+    font-family: Helvetica, sans-serif;
+    background-color: var(--bobcatgold); 
+    padding: 10px;
+    color: white;
+}
+
+.undoButton, .flipButton {
+    font-family: Helvetica, sans-serif;
+    background-color: black; 
+    padding: .5em;
+    color: white;
+    margin:auto;
+    width:25%;
+}
+
+#prevButton7, #prevButton8, #prevButton9{
+    font-family: Helvetica, sans-serif;
+    background-color: black; 
+    padding: 10px;
+    color: white;
+}
+
+#prevButton1, #prevButton2, #prevButton3, #prevButton4, #prevButton5, #prevButton6{
+    font-family: Helvetica, sans-serif;
+    background-color: black; 
+    padding: 10px;
+    color: white;
+    
+}
+
+
+
+h1 .odd {
+    font-family: Helvetica, sans-serif;
+    text-align: center;
+    color: #0AB4EC;
+}
+
+h1 .even {
+    font-family: Helvetica, sans-serif;
+    text-align: center;
+    color: #42B333;
+}
+
+table {
+    border: 1px solid black;
+    width: 100%;
+}
+
+td {
+    padding: 10px 4px;
+}
+
+input {
+    font-size: 16px;
+    font: roboto;
+}
+
+.title {
+    width: "50%";
+    text-align: center;
+    padding-right:0.5em;
+    padding-left:0.2em;
+}
+
+
+.field {
+    width: "50%";
+    text-align: left;
+    vertical-align: center;
+    display: flex;
+    align-items: left;
+    flex-flow: wrap;
+    color: white;
+}
+
+.title{
+    color:white;
+}
+
+#auto_table .title{
+width: 15px;
+}
+
+#endgame_table.title{
+width: 15px;
+}
+
+#post-match_table .title{
+width:15px;
+}
+
+/* #input1_fs{
+    width: 334px;
+}
+
+#input1_ad{
+    width: 334px;
+} */
+
+.break {
+    flex-basis: 100%;
+    height: 0;
+    width: 100%;
+  }
+
+
+
+.field p{
+display: block;
+padding:0;
+margin-top:.375em;
+margin-right: auto;
+font-size: 1.01em;
+}
+
+#teleop .field p{
+    /* font-size: 0.9rem; */
+}
+
+#qr-table {
+    text-align: center;
+    color: black;
+    background-color: white;
+}
+
+#data {
+    font-family:'Lucida Console', 'monospace';
+    text-align: justify;
+}
+
+/* prematch */
+#prematch_table{
+    margin: 0 auto;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.9rem;
+}

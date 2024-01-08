@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, maximum-scale=1.0">
+      <title></title>
+      <link rel="shortcut icon" href="favicon.ico">
+      <link rel="icon" sizes="16x16 32x32 64x64" href="favicon.ico">
+      <script src="resources/js/easy.qrcode.min.js"></script>
+      <script src="resources/js/TBAInterface.js"></script>
+      <script src="resources/js/googleSheets.js"></script>
+      <script src="resources/js/scoutingPASS.js"></script>
+      <script src="2023/CU_config_none.js"></script>
+      <link rel="stylesheet" href="resources/css/scoutingPASS.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+   </head>
+   <body>
+      <form id="scoutingForm" onsubmit="return false">
+         <div id="main-panel-holder">
+            <div id="prematch" class="main-panel" style="display: table;">
+               <!-- <h1 id="prematchHeader1" class="page_title"><span class="odd">P</span><span class="even">W</span><span class="odd">N</span><span class="even">A</span><span class="odd">G</span><span class="even">E</span><br>Scouting 2020</h1> -->
+               <h2 id="prematchHeader2">Pre Match</h2>
+               <p class="match-label"><input type="button" value="Next" id="nextButton1" onclick="swipePage(1)"></p>
+               <table id="prematch_table" style="font: Roboto">
+                  <!-- ###PRE-MATCH-COMPONENTS###-->
+                  <tbody>
+                     <tr>
+                        <td class="title">Name&nbsp;</td>
+                        <td class="field"><input id="input_s" type="text" onchange="replaceSemicolon(this.value)" name="s" size="15" maxlength="15" required=""></td>
+                     </tr>
+                     <tr>
+                        <td class="title">Event&nbsp;</td>
+                        <td class="field"><input id="input_e" type="text" onchange="replaceSemicolon(this.value)" name="e" value="e" required="" readonly=""><input id="default_e" type="hidden" value="2022carv" onchange="replaceSemicolon(this.value)"></td>
+                     </tr>
+                     <tr>
+                        <td class="title">Match Level&nbsp;</td>
+                        <td id="input1_l" class="field" onchange="updateMatchStart(event)">
+                           <label class="radiolabel"><input id="input_l_qm" type="radio" class="radiolabeled" classname="radio" name="l" value="qm" checked=""></label>
+                           <p class="radioelement">Quals</p>
+                           <div class="break"></div>
+                           <label class="radiolabel"><input id="input_l_de" type="radio" class="radiolabeled" classname="radio" name="l" value="de"></label>
+                           <p class="radioelement">Double Elimination</p>
+                           <div class="break"></div>
+                           <label class="radiolabel"><input id="input_l_f" type="radio" class="radiolabeled" classname="radio" name="l" value="f"></label>
+                           <p class="radioelement">Finals</p>
+                           <div class="break"></div>
+<!--                            <label class="radiolabel"><input id="input_l_f" type="radio" class="radiolabeled" classname="radio" name="l" value="p"></label>
+                           <p class="radioelement">Practice Matches</p>
+                           <div class="break"></div> -->
+
+                           <input id="display_l" class="radio" value="" hidden=""><input id="default_l" type="hidden" class="radio" value="qm">
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="title">Match #&nbsp;</td>
+                        <td class="field"><input id="input_m" type="number" name="m" onchange="updateMatchStart(event)" value="" min="1" max="100" required=""></td>
+                     </tr>
+                     <tr>
+                        <td class="title">Robot&nbsp;</td>
+                        <td id="input1_r" class="field" onchange="updateMatchStart(event)">
+                           <label class="radiolabel"><input id="input_r_b1" type="radio" class="radiolabeled" classname="radio" name="r" value="b1"></label>
+                           <p class="radioelement">Blue-1</p>
+                           <div class="break"></div>
+                           <label class="radiolabel"><input id="input_r_b2" type="radio" class="radiolabeled" classname="radio" name="r" value="b2"></label>
+                           <p class="radioelement">Blue-2<br></p>
+                           <div class="break"></div>
+                           <label class="radiolabel"><input id="input_r_b3" type="radio" class="radiolabeled" classname="radio" name="r" value="b3"></label>
+                           <p class="radioelement">Blue-3</p>
+                           <div class="break"></div>
+                           <label class="radiolabel"><input id="input_r_r1" type="radio" class="radiolabeled" classname="radio" name="r" value="r1"></label>
+                           <p class="radioelement">Red-1<br></p>
+                           <div class="break"></div>
+                           <label class="radiolabel"><input id="input_r_r2" type="radio" class="radiolabeled" classname="radio" name="r" value="r2"></label>
+                           <p class="radioelement">Red-2</p>
+                           <div class="break"></div>
+                           <label class="radiolabel"><input id="input_r_r3" type="radio" class="radiolabeled" classname="radio" name="r" value="r3"></label>
+                           <p class="radioelement">Red-3</p>
+                           <div class="break"></div>
+                           <input id="display_r" class="radio" value="" hidden="">
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="title">Team #&nbsp;</td>
+                        <td class="field"><input id="input_t" type="number" name="t" onchange="updateMatchStart(event)" value="" min="1" max="99999"></td>
+                     </tr>
+                     <tr>
+                        <td id="teamname-label" colspan="2" style="text-align: center; color:white;"></td>
+                     </tr>
+                     <tr>
+                        <td colspan="2" style="text-align: center;" class="title">Auto Start Position</td>
+                     </tr>
+                     <tr>
+                        <td colspan="2" style="text-align: center;"><input type="button" onclick="undo(this.parentElement)" value="Undo" id="undo_as" class="undoButton"><input type="button" onclick="flip(this.parentElement)" value="Flip" id="flip_as" class="flipButton" width="10%"></td>
+                     </tr>
+                     <tr>
+                        <td colspan="2" style="text-align: center;">
+                           <canvas onclick="onFieldClick(event)" class="field-image-src" id="canvas_as" width="395" height="200">No canvas support</canvas>
+                        </td>
+                     </tr>
+                     <tr style="display:none">
+                        <td colspan="2"><input type="hidden" id="XY_as" value="[]"><input name="as" id="input_as" value="[]" class="clickableImage" hidden=""><input id="clickRestriction_as" value="one" hidden=""><input id="dimensions_as" value="12 6" hidden=""><input id="shape_as" value="circle 5 black red true" hidden=""><input id="toggleClick_as" value="false" hidden=""></td>
+                     </tr>
+                     <tr style="display:none">
+                        <td colspan="2"><img src="2023/field_image.png" id="img_as" class="field-image-src" onload="drawFields()" hidden=""></td>
+                     </tr>
+                  </tbody>
+               </table>
+               <p class="match-label"><input type="button" value="Next" id="nextButton2" onclick="swipePage(1)"></p>
+            </div>
+            <div id="auton" class="main-panel" style="display: none;">
+               <!-- <h1 id="autonHeader" class="page_title"><span class="odd">P</span><span class="even">W</span><span class="odd">n</span><span class="even">A</span><span class="odd">G</span><span class="even">E</span><br>Scouting 2020</h1> -->
+               <h2 id="autonHeader">Auto</h2>
+               <p class="match-label"><input type="button" value="Prev" id="prevButton1" onclick="swipePage(-1)"><input type="button" value="Next" id="nextButton3" onclick="swipePage(1)"></p>
+               <table id="auton_table">
+                  <!-- ###AUTON-COMPONENTS###-->
+                  <tbody>
+                     <tr>
+                        <td class="field">
+                           <table style="border: 1px solid white;" id="teleopscoring">
+                              <tbody>
+                                 <tr>
+                                    <td style="border: 3px solid white; color: white;"></td>
+                                    <td style="border: 3px solid white; color: white;">Notes</td>
+                                    <!-- <td style="border: 3px solid white; color: white;">Cubes</td> -->
+                                 </tr>
+                                 <tr>
+                                    <td style="border: 3px solid white; color: white;">High</td>
+                                    <td style="border: 3px solid white; color: white;"><input type="button" onclick="counter(this.parentElement, 1)" value="+" class="add"><input class="counter" id="input_tsg" type="number" name="tsg" min="0" style="background-color: black; color: white;border: none; text-align: center;" readonly="" value="0" size="2" maxlength="2"><input type="button" onclick="counter(this.parentElement, -1)" value="-" class="subtract"></td>
+                                    <td style="border: 3px solid white; color: white;"><input type="button" onclick="counter(this.parentElement, 1)" value="+" class="add"><input class="counter" id="input_tsg" type="number" name="tsg" min="0" style="background-color: black; color: white;border: none; text-align: center;" readonly="" value="0" size="2" maxlength="2"><input type="button" onclick="counter(this.parentElement, -1)" value="-" class="subtract"></td>
+                                 </tr>
+                                 <!-- <tr>
+                                    <td style="border: 3px solid white; color: white;">Mid</td>
+                                    <td style="border: 3px solid white; color: white;"><input type="button" onclick="counter(this.parentElement, 1)" value="+" class="add"><input class="counter" id="input_tsg" type="number" name="tsg" min="0" style="background-color: black; color: white;border: none; text-align: center;" readonly="" value="0" size="2" maxlength="2"><input type="button" onclick="counter(this.parentElement, -1)" value="-" class="subtract"></td>
+                                    <td style="border: 3px solid white; color: white;"><input type="button" onclick="counter(this.parentElement, 1)" value="+" class="add"><input class="counter" id="input_tsg" type="number" name="tsg" min="0" style="background-color: black; color: white;border: none; text-align: center;" readonly="" value="0" size="2" maxlength="2"><input type="button" onclick="counter(this.parentElement, -1)" value="-" class="subtract"></td>
+                                 </tr> -->
+                                 <tr>
+                                    <td style="border: 3px solid white; color: white;">Low</td>
+                                    <td style="border: 3px solid white; color: white;"><input type="button" onclick="counter(this.parentElement, 1)" value="+" class="add"><input class="counter" id="input_tsg" type="number" name="tsg" min="0" style="background-color: black; color: white;border: none; text-align: center;" readonly="" value="0" size="2" maxlength="2"><input type="button" onclick="counter(this.parentElement, -1)" value="-" class="subtract"></td>
+                                    <td style="border: 3px solid white; color: white;"><input type="button" onclick="counter(this.parentElement, 1)" value="+" class="add"><input class="counter" id="input_tsg" type="number" name="tsg" min="0" style="background-color: black; color: white;border: none; text-align: center;" readonly="" value="0" size="2" maxlength="2"><input type="button" onclick="counter(this.parentElement, -1)" value="-" class="subtract"></td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </td>
+                     </tr>
+
+                     <!-- <tr>
+                        <td colspan="2" style="text-align: center;" class="title">Auto Scoring</td>
+                     </tr>
+                     <tr>
+                        <td colspan="2" style="text-align: center;">
+                           <canvas onclick="onFieldClick(event)" class="field-image-src" id="canvas_asg" width="395" height="200">No canvas support</canvas>
+                        </td>
+                     </tr>
+                     <tr style="display:none">
+                        <td colspan="2"><input type="hidden" id="XY_asg" value="[]"><input name="asg" id="input_asg" value="[]" class="clickableImage" hidden=""><input id="clickRestriction_asg" value="onePerBox" hidden=""><input id="dimensions_asg" value="9 4" hidden=""><input id="shape_asg" value="circle 12 black red true" hidden=""><input id="toggleClick_asg" value="true" hidden=""></td>
+                     </tr>
+                     <tr style="display:none">
+                        <td colspan="2"><img src="2023/grid_image.png" id="img_asg" class="field-image-src" onload="drawFields()" hidden=""></td>
+                     </tr>
+                     <tr>
+                        <td class="title">Left Community&nbsp;</td>
+                        <td class="field"><label class="checkboxlabel"><input id="input_alc" type="checkbox" class="checkboxlabeled" name="alc"></label></td>
+                     </tr>
+                     <tr>
+                        <td class="title">Charging Station&nbsp;</td>
+                        <td id="input1_ad" class="field">
+                           <label class="radiolabel"><input id="input_ad_e" type="radio" class="radiolabeled" classname="radio" name="ad" value="e"></label>
+                           <p class="radioelement">Engaged<br></p>
+                           <div class="break"></div>
+                           <label class="radiolabel"><input id="input_ad_d" type="radio" class="radiolabeled" classname="radio" name="ad" value="d"></label>
+                           <p class="radioelement">Only Docked</p>
+                           <div class="break"></div>
+                           <label class="radiolabel"><input id="input_ad_a" type="radio" class="radiolabeled" classname="radio" name="ad" value="a"></label>
+                           <p class="radioelement">Failed Attempt</p>
+                           <div class="break"></div>
+                           <label class="radiolabel"><input id="input_ad_x" type="radio" class="radiolabeled" classname="radio" name="ad" value="x" checked=""></label>
+                           <p class="radioelement">Not attempted</p>
+                           <div class="break"></div>
+                           <input id="display_ad" class="radio" value="" hidden=""><input id="default_ad" type="hidden" class="radio" value="x">
+                        </td>
+                     </tr> -->
+                     <tr>
+                        <!-- <td class="comments" colspan="2"><p>Comments</p><div class="break"></div><textarea class="comment" onchange="replaceSemicolon(this.value)" value=""></textarea></td> -->
+                     </tr>
+                  </tbody>
+               </table>
+               <p class="match-label"><input type="button" value="Prev" id="prevButton2" onclick="swipePage(-1)"> <input type="button" value="Next" id="nextButton4" onclick="swipePage(1)"></p>
+            </div>
+            <div id="teleop" class="main-panel" style="display: none;">
+               <!-- <h1 id="teleopHeader1" class="page_title"><span class="odd">P</span><span class="even">W</span><span class="odd">n</span><span class="even">A</span><span class="odd">G</span><span class="even">E</span><br>Scouting 2020</h1> -->
+               <h2 id="teleopHeader2">Teleop</h2>
+               <p class="match-label"><input type="button" value="Prev" id="prevButton3" onclick="swipePage(-1)"><input type="button" value="Next" id="nextButton5" onclick="swipePage(1)"></p>
+               <table id="teleop_table">
+                  <!-- ###TELEOP-COMPONENTS###-->
+                  <tbody>
+                     <tr>
+                        <td class="field">
+                           <table style="border: 1px solid white;" id="teleopscoring">
+                              <tbody>
+                                 <tr>
+                                    <td style="border: 3px solid white; color: white;"></td>
+                                    <td style="border: 3px solid white; color: white;">Notes</td>
+                                    <!-- <td style="border: 3px solid white; color: white;">Cubes</td> -->
+                                 </tr>
+                                 <tr>
+                                    <td style="border: 3px solid white; color: white;">High</td>
+                                    <td style="border: 3px solid white; color: white;"><input type="button" onclick="counter(this.parentElement, 1)" value="+" class="add"><input class="counter" id="input_tsg" type="number" name="tsg" min="0" style="background-color: black; color: white;border: none; text-align: center;" readonly="" value="0" size="2" maxlength="2"><input type="button" onclick="counter(this.parentElement, -1)" value="-" class="subtract"></td>
+                                    <td style="border: 3px solid white; color: white;"><input type="button" onclick="counter(this.parentElement, 1)" value="+" class="add"><input class="counter" id="input_tsg" type="number" name="tsg" min="0" style="background-color: black; color: white;border: none; text-align: center;" readonly="" value="0" size="2" maxlength="2"><input type="button" onclick="counter(this.parentElement, -1)" value="-" class="subtract"></td>
+                                 </tr>
+                                 <!-- <tr>
+                                    <td style="border: 3px solid white; color: white;">Mid</td>
+                                    <td style="border: 3px solid white; color: white;"><input type="button" onclick="counter(this.parentElement, 1)" value="+" class="add"><input class="counter" id="input_tsg" type="number" name="tsg" min="0" style="background-color: black; color: white;border: none; text-align: center;" readonly="" value="0" size="2" maxlength="2"><input type="button" onclick="counter(this.parentElement, -1)" value="-" class="subtract"></td>
+                                    <td style="border: 3px solid white; color: white;"><input type="button" onclick="counter(this.parentElement, 1)" value="+" class="add"><input class="counter" id="input_tsg" type="number" name="tsg" min="0" style="background-color: black; color: white;border: none; text-align: center;" readonly="" value="0" size="2" maxlength="2"><input type="button" onclick="counter(this.parentElement, -1)" value="-" class="subtract"></td>
+                                 </tr> -->
+                                 <tr>
+                                    <td style="border: 3px solid white; color: white;">Low</td>
+                                    <td style="border: 3px solid white; color: white;"><input type="button" onclick="counter(this.parentElement, 1)" value="+" class="add"><input class="counter" id="input_tsg" type="number" name="tsg" min="0" style="background-color: black; color: white;border: none; text-align: center;" readonly="" value="0" size="2" maxlength="2"><input type="button" onclick="counter(this.parentElement, -1)" value="-" class="subtract"></td>
+                                    <td style="border: 3px solid white; color: white;"><input type="button" onclick="counter(this.parentElement, 1)" value="+" class="add"><input class="counter" id="input_tsg" type="number" name="tsg" min="0" style="background-color: black; color: white;border: none; text-align: center;" readonly="" value="0" size="2" maxlength="2"><input type="button" onclick="counter(this.parentElement, -1)" value="-" class="subtract"></td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </td>
+                     </tr>
+                     <tr>
+                        <!-- <td class="title">Was Defended&nbsp;</td> -->
+                        <td class="field"><label class="checkboxlabel"><input id="input_wd" type="checkbox" class="checkboxlabeled" name="wd"></label><p>Was Defended</p></td>
+                     </tr>
+                     <tr>
+                        <!-- <td class="title">Picked up <strong>cones</strong> from <strong>floor (tipped)</strong>&nbsp;</td> -->
+                        <td class="field"><label class="checkboxlabel"><input id="input_pcf" type="checkbox" class="checkboxlabeled" name="pcf"></label><p>Single HP</p></td>
+                     </tr>
+                     <tr>
+                        <!-- <td class="title">Picked up from <strong>HP</strong>&nbsp;</td> -->
+                        <td class="field"><label class="checkboxlabel"><input id="input_pchp" type="checkbox" class="checkboxlabeled" name="pchp"></label><p>HP Shelf</p></td>
+                     </tr>
+                     <tr>
+                        <!-- <td class="title">Picked up <strong>cubes</strong> from <strong>floor</strong>&nbsp;</td> -->
+                        <td class="field"><label class="checkboxlabel"><input id="input_pcuu" type="checkbox" class="checkboxlabeled" name="pcuu"></label><p>Tipped</p></td>
+                     </tr>
+
+                     <tr>
+                        <!-- <td class="comments" colspan="2"><p>Comments</p><div class="break"></div><textarea class="comment"onchange="replaceSemicolon(this.value)" value=""></textarea></td> -->
+                     </tr>
+                     <tr>
+                        <td colspan="2" style="text-align: center;" class="title">Docking Timer</td>
+                     </tr>
+                     <tr>
+                        <td colspan="2" style="text-align: center;"><input id="start_dt" type="button" onclick="timer(this.parentElement)" value="Start" class="start"><input class="timer" id="input_dt" type="number" name="dt" style="background-color: black; color: white;border: none; text-align: center;" readonly="" value="0" min="0"><input id="clear_dt" type="button" onclick="resetTimer(this.parentElement)" value="Reset" class="reset"><br><input id="subtractone_dt" type="button" onclick="subtractSecond(this.parentElement)" value="-1" class="subtractone"><input id="addone_dt" type="button" onclick="addSecond(this.parentElement)" value="+1" class="addone"></td>
+                     </tr>
+                     <tr style="display:none">
+                        <td colspan="2" style="text-align: center;"><input type="hidden" id="status_dt" value="stopped"><input id="intervalId_dt" value="" hidden=""></td>
+                     </tr>
+                  </tbody>
+               </table>
+               <p class="match-label"><input type="button" value="Prev" id="prevButton4" onclick="swipePage(-1)"> <input type="button" value="Next" id="nextButton6" onclick="swipePage(1)"></p>
+            </div>
+            <div id="endgame" class="main-panel" style="display: none;">
+               <!-- <h1 id= "endgameHeader" class="page_title"><span class="odd">P</span><span class="even">W</span><span class="odd">n</span><span class="even">A</span><span class="odd">G</span><span class="even">E</span><br>Scouting 2020</h1> -->
+               <h2 id="endgameHeader">Endgame</h2>
+               <p class="match-label"><input type="button" value="Prev" id="prevButton5" onclick="swipePage(-1)"><input type="button" value="Next" id="nextButton7" onclick="swipePage(1)"></p>
+               <table id="endgame_table">
+                  <!-- ###ENDGAME-COMPONENTS###-->
+                  <tbody>
+
+                     <tr>
+                        <td class="title">Final Status&nbsp;</td>
+                        <td id="input1_fs" class="field">
+                           <label class="radiolabel"><input id="input_fs_e" type="radio" class="radiolabeled" classname="radio" name="fs" value="e"></label>
+                           <p class="radioelement">Engaged<br></p>
+                           <div class="break"></div>
+                           <label class="radiolabel"><input id="input_fs_d" type="radio" class="radiolabeled" classname="radio" name="fs" value="d"></label>
+                           <p class="radioelement">Only Docked</p>
+                           <div class="break"></div>
+                           <label class="radiolabel"><input id="input_fs_p" type="radio" class="radiolabeled" classname="radio" name="fs" value="p"></label>
+                           <p class="radioelement">Parked</p>
+                           <div class="break"></div>
+                           <label class="radiolabel"><input id="input_fs_x" type="radio" class="radiolabeled" classname="radio" name="fs" value="x" checked=""></label>
+                           <p class="radioelement">None</p>
+                           <div class="break"></div>
+                           <input id="display_fs" class="radio" value="" hidden=""><input id="default_fs" type="hidden" class="radio" value="x">
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="title">Failed attempt at docking&nbsp;</td>
+                        <td class="field"><label class="checkboxlabel"><input id="input_fsd" type="checkbox" class="checkboxlabeled" name="fsd"></label></td>
+                     </tr>
+                     <tr>
+                        <td class="title">Total # of alliance robots docked/engaged&nbsp;</td>
+                        <td class="field"><input type="button" onclick="counter(this.parentElement, -1);" class="subtract" value="-"><input class="counter" id="input_dn" type="number" name="dn" max="3" onchange="if(value<0) value=0; if(value>3) value=3;" min="0" style="background-color: black; color: white;border: none; text-align: center;" readonly="" value="0" size="2" maxlength="2"><input type="button" onclick="counter(this.parentElement, 1)" value="+" class="add"></td>
+                     </tr>
+                     <tr>
+                        <!-- <td class="comments" colspan="2"><p>Comments</p><div class="break"></div><textarea class="comment" onchange="replaceSemicolon(this.value)" value=""></textarea></td> -->
+                     </tr>
+                  </tbody>
+               </table>
+               <p class="match-label"><input type="button" value="Prev" id="prevButton6" onclick="swipePage(-1)"> <input type="button" value="Next" id="nextButton8" onclick="swipePage(1)"></p>
+            </div>
+            <div id="post-match" class="main-panel" style="display: none;">
+               <!-- <h1 id="postmatchHeader" class="page_title"><span class="odd">P</span><span class="even">W</span><span class="odd">n</span><span class="even">A</span><span class="odd">G</span><span class="even">E</span><br>Scouting 2020</h1> -->
+               <h2>Post-Match</h2>
+               <p class="match-label"><input type="button" value="Prev" id="prevButton7" onclick="swipePage(-1)"><input type="button" value="Next" id="nextButton9" onclick="swipePage(1)"></p>
+               <table id="postmatch_table">
+                  <!-- ###POST-MATCH-COMPONENTS###-->
+                  <tbody>
+                     <tr>
+                        <td class="title">Driver Skill&nbsp;</td>
+                        <td id="input1_ds" class="field">
+                           <label class="radiolabel"><input id="input_ds_n" type="radio" class="radiolabeled" classname="radio" name="ds" value="n"></label>
+                           <p class="radioelement">Not Effective<br></p>
+                           <div class="break"></div>
+                           <label class="radiolabel"><input id="input_ds_a" type="radio" class="radiolabeled" classname="radio" name="ds" value="a"></label>
+                           <p class="radioelement">Effective<br></p>
+                           <div class="break"></div>
+                           <label class="radiolabel"><input id="input_ds_v" type="radio" class="radiolabeled" classname="radio" name="ds" value="v"></label>
+                           <p class="radioelement">Very Effective<br></p>
+                           <div class="break"></div>
+                           <label class="radiolabel"><input id="input_ds_x" type="radio" class="radiolabeled" classname="radio" name="ds" value="x" checked=""></label>
+                           <p class="radioelement">Not Observed</p>
+                           <div class="break"></div>
+                           <input id="display_ds" class="radio" value="" hidden=""><input id="default_ds" type="hidden" class="radio" value="x">
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="title">Defense Rating&nbsp;</td>
+                        <td id="input1_dr" class="field">
+                           <label class="radiolabel"><input id="input_dr_x" type="radio" class="radiolabeled" classname="radio" name="dr" value="x" checked=""></label>
+                           <p class="radioelement">No Defense</p>
+                           <div class="break"></div>
+                           <label class="radiolabel"><input id="input_dr_b" type="radio" class="radiolabeled" classname="radio" name="dr" value="b"></label>
+                           <p class="radioelement">Negative Impact</p>
+                           <div class="break"></div>
+                           <label class="radiolabel"><input id="input_dr_a" type="radio" class="radiolabeled" classname="radio" name="dr" value="a"></label>
+                           <p class="radioelement">No Impact</p>
+                           <div class="break"></div>
+                           <label class="radiolabel"><input id="input_dr_g" type="radio" class="radiolabeled" classname="radio" name="dr" value="g"></label>
+                           <p class="radioelement">Positive Impact</p>
+                           <div class="break"></div>
+                           <label class="radiolabel"><input id="input_dr_e" type="radio" class="radiolabeled" classname="radio" name="dr" value="e"></label>
+                           <p class="radioelement">Elite Impact</p>
+                           <div class="break"></div>
+                           <input id="display_dr" class="radio" value="" hidden=""><input id="default_dr" type="hidden" class="radio" value="x">
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="title">Died/Immobilized&nbsp;</td>
+                        <td class="field"><label class="checkboxlabel"><input id="input_die" type="checkbox" class="checkboxlabeled" name="die"></label></td>
+                     </tr>
+<!--                       <tr>
+                        <td class="title">Tipped&nbsp;</td>
+                        <td class="field"><label class="checkboxlabel"><input id="input_tip" type="checkbox" class="checkboxlabeled" name="tip"></label></td>
+                     </tr> -->
+                     <tr>
+                        <td class="title">Committed Fouls&nbsp;</td>
+                        <td class="field"><label class="checkboxlabel"><input id="input_foul" type="checkbox" class="checkboxlabeled" name="foul"></label></td>
+                     </tr>
+                     <!-- <tr>
+                     <td class="comments" colspan="2"><p>Comments</p></textarea></td>
+                     </tr> -->
+                     <tr>
+                        <!-- <td class="title">Comments&nbsp;</td> -->
+                        <td class="comments" colspan="2"><p>Comments</p><div class="break"></div><textarea class="comment"id="input_co" onchange="replaceSemicolon(this.value)" name="co" value=""></textarea></td>
+                     </tr>
+                  </tbody>
+               </table>
+               <p class="match-label"><input type="button" value="Prev" id="prevButton8" onclick="swipePage(-1)"> <input type="button" value="Next" id="nextButton10" onclick="swipePage(1)"></p>
+            </div>
+            <div id="qr-code" class="main-panel" style="display: none;">
+               <h1 id="qrHeader1" class="page_title"></h1>
+               <h2 id="qrHeader2" style="color: white;">Generate QR Code</h2>
+               <p class="match-label"><input type="button" value="Prev" id="prevButton9" onclick="swipePage(-1)"></p>
+               <p id="qr-info"><span id="display_qr-info" style="border: none; text-align: center;">Event: 2022carv Match: 1 Robot: b1 Team: 695</span></p>
+               <table id="qr-table">
+                  <tbody>
+                     <tr>
+                        <td width="5%">&nbsp;</td>
+                        <td width="90%">
+                           <div id="qrcode" style="text-align:center">
+                              <script>
+                                 // Create QRCode Object
+                                     qr = new QRCode(document.getElementById("qrcode"), options)
+                              </script>
+                              <!-- <canvas width="275" height="275"></canvas> -->
+                           </div>
+                        </td>
+                        <td width="5%">&nbsp;</td>
+                     </tr>
+                     <tr>
+                        <td width="5%">&nbsp;</td>
+                        <td width="90%">
+                           <div>
+                              <p id="data" style="text-align:center"></p>
+                           </div>
+                        </td>
+                        <td width="5%">&nbsp;</td>
+                     </tr>
+                  </tbody>
+               </table>
+               <p></p>
+               <p class="match-label"><input type="button" value="Display Data" id="displayButton" onclick="displayData()"><input type="button" value="Copy Data" id="copyButton" onclick="copyData()"></p>
+               <div id="submitButton">
+                  <button id="submit" type="submit" class="submitForm" style="display: none;">Send to Google Sheets</button>
+               </div>
+               <div id="clearButton">
+                  <!-- <button type="button" class="clearForm" onclick="clearForm()">Clear Form</button> -->
+                  <button type="button" class="clearForm" data-bs-toggle="modal" data-bs-target="#clearModal" onclick="modal()">Clear Form</button>
+
+
+
+               </div>
+               <br>
+            </div>
+<!-- Modal -->
+<div class="modal fade" id="clearModal" tabindex="-1" aria-labelledby="clearModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+     <div class="modal-content">
+       <div class="modal-header">
+         <h5 class="modal-title" id="clearModalLabel">Clear Form</h5>
+         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+       </div>
+       <div class="modal-body">
+         Are you sure you want to clear the form?
+       </div>
+       <div class="modal-footer">
+         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="dismissmodal()">Close</button>
+         <button type="button" class="btn btn-danger" onclick="clearForm(); dismissmodal()" data-bs-dismiss="modal">Yes</button>
+       </div>
+     </div>
+   </div>
+ </div>
+
+         </div>
+
+         <script>
+             function modal(){
+                 $('#clearModal').modal('show') 
+             }
+             function dismissmodal(){
+                 $('#clearModal').modal('hide') 
+             }
+
+         </script>
+
+      </form>
+      <script>
+         
+
+         
+         $(window).bind("load", function () {
+         
+         $( ".radio:visible" ).wrap( "<label class='radiolabel'></label>" );
+         $(".radio:visible").attr('class', 'radiolabeled');
+         
+         $( ".checkbox:visible" ).wrap( "<label class='checkboxlabel'></label>" );
+         $(".checkbox:visible").attr('class', 'checkboxlabeled');
+
+$(".comment").on("input",function(){
+
+    $(".comment").not($(this)).val($(this).val());
+
+})
+
+         
+         
+         // var $set = $('field').children();    
+         // for(var i=0, len = $set.length; i < len; i+=2){
+         //     $set.slice(i, i+1).wrapAll('<div class="test" />');
+         // }    
+         
+         // $("label").next().addBack().wrapAll('<div id="newDiv"/>');
+         
+         // $( ".radioelement" ).wrapAll( "<div class='new' />");
+         
+         // $('label+p').each(function(){
+         //     $(this).prev().addBack().wrapAll('<div>');
+         // });â€‹
+         
+         // $('label+p').each(function(){
+         //     $(this).prev().andSelf().wrapAll('<div>');
+         // });â€‹
+         
+         // $('form > label').each(function(){
+         //     $(this).next('p').andSelf().wrapAll('<div class="test"/>');
+         // });
+         
+         
+         
+         });
+         
+         function checkzero(){
+         var	inp=document.getElementById("input_dt").value
+         console.log(inp);
+         if(inp<0){
+           inp1=document.getElementById("input_dt");
+           inp1.setAttribute("value", 0)
+           $('#input_dt').val('000000');
+         }
+         }
+         
+         var intervalId = window.setInterval(function(){
+         
+         $( ".radio:visible" ).wrap( "<label class='radiolabel'></label>" );
+         
+         
+         $(".radio:visible").attr('class', 'radiolabeled');
+         
+         $( ".checkbox:visible" ).wrap( "<label class='checkboxlabel'></label>" );
+         $(".checkbox:visible").attr('class', 'checkboxlabeled');
+         
+         var myTable = document.getElementById('teleopscoring');
+         myTable.rows[0].cells[1].innerHTML = 'Cones';
+         myTable.rows[0].cells[2].innerHTML = 'Cubes';
+         myTable.rows[1].cells[0].innerHTML = 'High';
+         myTable.rows[2].cells[0].innerHTML = 'Mid';
+         myTable.rows[3].cells[0].innerHTML = 'Low';
+         var $set = $('field').children();    
+         for(var i=0, len = $set.length; i < len; i+=2){
+           $set.slice(i, i+1).wrapAll('<div class="test" />');
+         }    
+         
+         
+         }, 300);
+         
+         
+         
+         function replaceSemicolon(str) {
+         var comvalue = document.getElementById("input_co").value;	
+         
+         str = comvalue.replace(/;/g, "");
+         
+         var text = document.getElementById("input_co");	
+         text.setAttribute("value", str);
+         }
+         
+      </script>
+   </body>
+</html>
