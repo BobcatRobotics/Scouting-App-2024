@@ -1,0 +1,121 @@
+<?php
+session_start();
+include '../includes/connection.php';
+require_once 'adminconfirm.php';
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="generator" content="Hugo 0.84.0">
+    <title>Admin</title>
+
+    <!-- <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/"> -->
+
+    
+
+
+
+
+    <link href="../css/bootstrap.css" rel="stylesheet">
+	<script src="../css/bootstrap.js"></script>
+
+
+  <script src="../css/jquery.js"></script>
+
+<!-- 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+  <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>  
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="https://markcell.github.io/jquery-tabledit/assets/js/tabledit.min.js"></script> -->
+
+
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      input[type="text"]:disabled {
+        background-color: #383838;
+
+      }
+
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+    <link href="sidebar.css" rel="stylesheet">
+  </head>
+  <body>
+
+  
+<?php //require_once 'includes/navbar.php'; ?> 
+<header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="../account.php">Scouting Home</a>
+  <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <input class="form-control form-control-dark w-100" type="text" placeholder="" aria-label="Search" disabled>
+  <div class="navbar-nav">
+    <div class="nav-item text-nowrap">
+      <a class="nav-link px-3" href="../login/logout.php">Sign out</a>
+    </div>
+  </div>
+</header>
+
+<div class="container-fluid">
+  <div class="row">
+    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+      <div class="position-sticky pt-3">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="admin.php">
+              <span data-feather="home"></span>
+              Dashboard
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="scan.php">
+              <span data-feather="home"></span>
+              QR Code Scanner
+            </a>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="lookup.php">
+              <span data-feather="home"></span>
+Team/Match Lookup            </a>
+          </li> -->
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="insert.php">
+              <span data-feather="home"></span>
+              Insert Scouting Data
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+    </nav>
+
+<style> 
+
+</style>
+<iframe src="scanner.php" style="border:none;" title="QR Code Scanner" height="1000px" width="100%"></iframe>
+
