@@ -9,7 +9,6 @@ mysqli_set_charset($mysqli, "utf8");
 // Define variables and initialize with empty values
 $username = $password = "";
 $param_password = password_hash("password", PASSWORD_DEFAULT);
-echo $param_password;
 
 $username_err = $password_err = "";
  
