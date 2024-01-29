@@ -233,12 +233,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `admin`, `email`, `first_name`, `last_name`, `scouter`) VALUES
-(2, 'administrator', '$2y$10$iXb53snu4NvJOkqHtRBFoO0Qn.Gg1KDS9wGT68nHbD77GbAUKeKkG', 1, 'test@test.com', 'Root', 'Admin', 1),
-(5, 'test', '$2y$10$tlpsmj/8hmu09aRDjU5G9uLZZNCV9PZB2bQRdy2lmWkUnCPPHJVam', 0, 'test@test.com', 'test', 'test', 0),
-(6, 'admin', '$2y$10$N5u/Neqpchgo3GJyBFB.jeVw6PIjl3AEXnW0Pe4RXiiR9YMG3fEAO', 1, 'adithya.anand100@gmail.com', 'Adithya', 'Anand', 1),
-(7, 'bob', '$2y$10$eCxh05vRjkoCS3GJcC.Ir.a.OuZXn5azjlGOyRFzSIlkI4M7Y/Hjq', 0, 'test@gmail.com', 'bob', 'bob', 1),
-(8, 'test1', '$2y$10$hirLZD/8vc0ZG9.u4qDrZe8bgoFQYVjUxtoE.AIqBG2rgws/VSnIC', 0, 'test@test.com', 'test', 'test', 1),
-(9, 'test123', '$2y$10$.4V6skQQADHTNRUewfAQ7OcxQaNGvnmTxSxyS7BonBoJhfASR.ZK6', 0, 'test@test.com', 'test', 'test', 1);
+(2, 'admin', '$2y$10$Tkiw/XUwTSDXip4CoJgCP.HMvBEPzd8KinpkTUCk8epQMQiHAq3eO', 1, 'team177@bobcatrobotics.org' 'Root', '', 1),
+(6, 'Bobcat Robotics', '$2y$10$yLcotQVeSf.gDFnifcP09OhDpX9bIxGBt6Pao7/95lGJsvTjNovpq', 1, 'contact@bobcatrobotics.org', 'Bobcat Robotics', '', 1);
 
 --
 -- Indexes for dumped tables
