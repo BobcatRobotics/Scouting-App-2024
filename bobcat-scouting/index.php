@@ -9,14 +9,11 @@ include_once 'includes/navbar.php';
 <link href="css/bootstrap.css" rel="stylesheet">
 	<script src="css/bootstrap.js"></script>
 
-    <title>Bobcat Robotics Scouting Home</title>
-
-
 
 </head>
 
 <body>
-    <img src="img/robot.jpeg" alt="Robot Picture">
+<iframe src="https://www.thebluealliance.com/events" style="width:100%; height:90vw;">
 </body>
 
 </html>
