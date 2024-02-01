@@ -1,0 +1,3 @@
+id,name,event,level,match,robot,team,autostart,speakerauto,ampauto,leftstart,speakertele,amptele,cooperation,wasDefended,hpPickup,floorPickup,tippedOver,hangingTime,finalStatus,climbSide,failedClimb,buddyClimb,robotsInAlliance,trapScored,spotLight,Harmony,driverSkill,defenseRating,died,fouls,comments
+2,fd,e,qm,1,b1,1,[37],1,1,Y,1,1,N,N,Y,N,N,2.0,x,x,N,N,0,N,N,N,x,x,N,N,fdsa
+3,fd,e,qm,1,b1,1,[37],1,1,Y,1,1,N,N,Y,N,N,2.0,x,x,N,N,0,N,N,N,x,x,N,N,fdsa
