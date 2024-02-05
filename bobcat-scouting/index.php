@@ -13,7 +13,7 @@ include_once 'includes/navbar.php';
 </head>
 
 <body>
-<iframe src="https://www.thebluealliance.com/events" style="width:100%; height:90vw;">
+<img src="img/photo.jpg" alt="robot photo" style="width:500px">
 </body>
 
 </html>
