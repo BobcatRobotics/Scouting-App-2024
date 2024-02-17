@@ -125,10 +125,14 @@ CREATE TABLE `sdata` (
 
   `autostart` varchar(255) DEFAULT NULL,
   `speakerauto` varchar(255) DEFAULT NULL,
+  `speakerautomissed` varchar(255) DEFAULT NULL,
   `ampauto` varchar(255) DEFAULT NULL,
+  `ampautomissed` varchar(255) DEFAULT NULL,
   `leftstart` varchar(255) DEFAULT NULL,
   `speakertele` varchar(255) DEFAULT NULL,
+  `speakertelemissed` varchar(255) DEFAULT NULL,
   `amptele` varchar(255) DEFAULT NULL,
+  `amptelemissed`varchar(255) DEFAULT NULL,
   `cooperation` varchar(255) DEFAULT NULL,
 
   `wasDefended` varchar(255) DEFAULT NULL,
