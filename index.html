@@ -125,11 +125,12 @@
                               <tbody>
                                  <tr>
                                     <td style="border: 3px solid white; color: white;"></td>
-                                    <td style="border: 3px solid white; color: white;">Notes</td>
-                                    <!-- <td style="border: 3px solid white; color: white;">Cubes</td> -->
+                                    <td style="border: 3px solid white; color: white;">Notes Made</td>
+                                    <td style="border: 3px solid white; color: white;">Notes Missed</td>
                                  </tr>
                                  <tr>
                                     <td style="border: 3px solid white; color: white;">Speaker</td>
+                                    <td style="border: 3px solid white; color: white;"><input type="button" onclick="counter(this.parentElement, 1)" value="+" class="add"><input class="counter" id="input_asg" type="number" name="asg" min="0" style="background-color: black; color: white;border: none; text-align: center;" readonly="" value="0" size="2" maxlength="2"><input type="button" onclick="counter(this.parentElement, -1)" value="-" class="subtract"></td>
                                     <td style="border: 3px solid white; color: white;"><input type="button" onclick="counter(this.parentElement, 1)" value="+" class="add"><input class="counter" id="input_asg" type="number" name="asg" min="0" style="background-color: black; color: white;border: none; text-align: center;" readonly="" value="0" size="2" maxlength="2"><input type="button" onclick="counter(this.parentElement, -1)" value="-" class="subtract"></td>
                                  </tr>
                                  <!-- <tr>
@@ -140,6 +141,8 @@
                                  <tr>
                                     <td style="border: 3px solid white; color: white;">Amp</td>
                                     <td style="border: 3px solid white; color: white;"><input type="button" onclick="counter(this.parentElement, 1)" value="+" class="add"><input class="counter" id="input_asg" type="number" name="tsg" min="0" style="background-color: black; color: white;border: none; text-align: center;" readonly="" value="0" size="2" maxlength="2"><input type="button" onclick="counter(this.parentElement, -1)" value="-" class="subtract"></td>
+                                    <td style="border: 3px solid white; color: white;"><input type="button" onclick="counter(this.parentElement, 1)" value="+" class="add"><input class="counter" id="input_asg" type="number" name="asg" min="0" style="background-color: black; color: white;border: none; text-align: center;" readonly="" value="0" size="2" maxlength="2"><input type="button" onclick="counter(this.parentElement, -1)" value="-" class="subtract"></td>
+                                 
                                  </tr>
                               </tbody>
                            </table>
@@ -207,12 +210,13 @@
                               <tbody>
                                  <tr>
                                     <td style="border: 3px solid white; color: white;"></td>
-                                    <td style="border: 3px solid white; color: white;">Notes</td>
-                                    <!-- <td style="border: 3px solid white; color: white;">Cubes</td> -->
+                                    <td style="border: 3px solid white; color: white;">Notes Made</td>
+                                    <td style="border: 3px solid white; color: white;">Notes Missed</td>
                                  </tr>
                                  <tr>
                                     <td style="border: 3px solid white; color: white;">Speaker</td>
-                                    <td style="border: 3px solid white; color: white;"><input type="button" onclick="counter(this.parentElement, 1)" value="+" class="add"><input class="counter" id="input_tsg" type="number" name="tsg" min="0" style="background-color: black; color: white;border: none; text-align: center;" readonly="" value="0" size="2" maxlength="2"><input type="button" onclick="counter(this.parentElement, -1)" value="-" class="subtract"></td>
+                                    <td style="border: 3px solid white; color: white;"><input type="button" onclick="counter(this.parentElement, 1)" value="+" class="add"><input class="counter" id="input_asg" type="number" name="asg" min="0" style="background-color: black; color: white;border: none; text-align: center;" readonly="" value="0" size="2" maxlength="2"><input type="button" onclick="counter(this.parentElement, -1)" value="-" class="subtract"></td>
+                                    <td style="border: 3px solid white; color: white;"><input type="button" onclick="counter(this.parentElement, 1)" value="+" class="add"><input class="counter" id="input_asg" type="number" name="asg" min="0" style="background-color: black; color: white;border: none; text-align: center;" readonly="" value="0" size="2" maxlength="2"><input type="button" onclick="counter(this.parentElement, -1)" value="-" class="subtract"></td>
                                  </tr>
                                  <!-- <tr>
                                     <td style="border: 3px solid white; color: white;">Mid</td>
@@ -221,10 +225,13 @@
                                  </tr> -->
                                  <tr>
                                     <td style="border: 3px solid white; color: white;">Amp</td>
-                                    <td style="border: 3px solid white; color: white;"><input type="button" onclick="counter(this.parentElement, 1)" value="+" class="add"><input class="counter" id="input_tsg" type="number" name="tsg" min="0" style="background-color: black; color: white;border: none; text-align: center;" readonly="" value="0" size="2" maxlength="2"><input type="button" onclick="counter(this.parentElement, -1)" value="-" class="subtract"></td>
+                                    <td style="border: 3px solid white; color: white;"><input type="button" onclick="counter(this.parentElement, 1)" value="+" class="add"><input class="counter" id="input_asg" type="number" name="tsg" min="0" style="background-color: black; color: white;border: none; text-align: center;" readonly="" value="0" size="2" maxlength="2"><input type="button" onclick="counter(this.parentElement, -1)" value="-" class="subtract"></td>
+                                    <td style="border: 3px solid white; color: white;"><input type="button" onclick="counter(this.parentElement, 1)" value="+" class="add"><input class="counter" id="input_asg" type="number" name="asg" min="0" style="background-color: black; color: white;border: none; text-align: center;" readonly="" value="0" size="2" maxlength="2"><input type="button" onclick="counter(this.parentElement, -1)" value="-" class="subtract"></td>
+                                 
                                  </tr>
                               </tbody>
                            </table>
+
                         </td>
                      </tr>
                      <tr>
@@ -305,7 +312,7 @@
                            <label class="radiolabel"><input id="input_cs_x" type="radio" class="radiolabeled" classname="radio" name="cs" value="x" checked=""></label>
                            <p class="radioelement">None</p>
                            <div class="break"></div>
-                           <input id="display_cs" class="radio" value="" hidden=""><input id="default_fs" type="hidden" class="radio" value="x">
+                           <input id="display_cs" class="radio" value="" hidden=""><input id="default_cs" type="hidden" class="radio" value="x">
                         </td>
                      </tr>
 
@@ -313,9 +320,13 @@
                         <td class="title">Failed attempt at climbing&nbsp;</td>
                         <td class="field"><label class="checkboxlabel"><input id="input_fsd" type="checkbox" class="checkboxlabeled" name="fsd"></label></td>
                      </tr>
+                     <!-- <tr>
+                        <td class="title">Picked up <strong>cones</strong> from <strong>floor (tipped)</strong>&nbsp;</td>
+                        <td class="field"><label class="checkboxlabel"><input id="input_pcdsf" type="checkbox" class="checkboxlabeled" name="pcdsf"></label></td>
+                     </tr> -->
                      <tr>
                         <td class="title">Buddy climbed&nbsp;</td>
-                        <td class="field"><label class="checkboxlabel"><input id="input_fsd" type="checkbox" class="checkboxlabeled" name="fsd"></label></td>
+                        <td class="field"><label class="checkboxlabel"><input id="input_bc" type="checkbox" class="checkboxlabeled" name="bc"></label></td>
                      </tr>
                      <tr>
                         <td class="title">Total # of alliance robots climbed&nbsp;</td>
@@ -349,7 +360,7 @@
                   <tbody>
                      <tr>
                         <td class="title">Driver Skill&nbsp;</td>
-                        <td id="input1_ds" class="field">
+                        <td id="input_ds" class="field">
                            <label class="radiolabel"><input id="input_ds_n" type="radio" class="radiolabeled" classname="radio" name="ds" value="n"></label>
                            <p class="radioelement">Not Effective<br></p>
                            <div class="break"></div>
@@ -467,7 +478,7 @@
        </div>
        <div class="modal-footer">
          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="dismissmodal()">Close</button>
-         <button type="button" class="btn btn-danger" onclick="clearForm(); dismissmodal()" data-bs-dismiss="modal">Yes</button>
+         <button type="button" class="btn btn-danger" onclick="dismissmodal(), clearForm()" data-bs-dismiss="modal">Yes</button>
        </div>
      </div>
    </div>
