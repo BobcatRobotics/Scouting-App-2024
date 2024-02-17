@@ -52,6 +52,8 @@ showMenu();
           <div class="account">
             <li><a class="dropdown-item" href="account.php">Account</a></li>
             <li><a class="dropdown-item" href="password_reset.php">Reset Password</a></li>
+            <li><a class="dropdown-item" href="admin/admin.php">Admin</a></li>
+
 
           <?php 
           
@@ -62,6 +64,7 @@ showMenu();
 
           if ((isset($_SESSION['scouter']))){
             if($_SESSION['scouter']==1 || $_SESSION['admin']==1){
+              echo '<li><a class="dropdown-item" href="admin/admin.php">Admin</a></li>';
             // echo '<li><a class="dropdown-item" href="scouting/index.php">Scouting</a></li>';
             }
           }
@@ -89,6 +92,8 @@ showMenu();
         </li> -->
 
  <?php
+               echo '<li><a class="dropdown-item" href="admin/admin.php">Admin</a></li>';
+
      break;
  }
 ?>

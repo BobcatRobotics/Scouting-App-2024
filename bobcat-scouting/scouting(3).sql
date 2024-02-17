@@ -150,8 +150,6 @@ CREATE TABLE `sdata` (
   `died` varchar(1500) DEFAULT NULL,
     `fouls` varchar(1500) DEFAULT NULL,
   `comments` varchar(1500) DEFAULT NULL
-
-  --`comments` varchar(1500) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -203,7 +201,6 @@ CREATE TABLE `sdata_backup` (
     `fouls` varchar(1500) DEFAULT NULL,
   `comments` varchar(1500) DEFAULT NULL
 
-  --`comments` varchar(1500) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
@@ -232,9 +229,9 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`, `admin`, `email`, `first_name`, `last_name`, `scouter`) VALUES
-(2, 'admin', '$2y$10$Tkiw/XUwTSDXip4CoJgCP.HMvBEPzd8KinpkTUCk8epQMQiHAq3eO', 1, 'team177@bobcatrobotics.org' 'Root', '', 1),
-(6, 'Bobcat Robotics', '$2y$10$yLcotQVeSf.gDFnifcP09OhDpX9bIxGBt6Pao7/95lGJsvTjNovpq', 1, 'contact@bobcatrobotics.org', 'Bobcat Robotics', '', 1);
+-- INSERT INTO `users` (`id`, `username`, `password`, `admin`, `email`, `first_name`, `last_name`, `scouter`) VALUES
+-- (2, 'admin', '$2y$10$Tkiw/XUwTSDXip4CoJgCP.HMvBEPzd8KinpkTUCk8epQMQiHAq3eO', 1, 'team177@bobcatrobotics.org' 'Root', '', 1),
+-- (6, 'Bobcat Robotics', '$2y$10$yLcotQVeSf.gDFnifcP09OhDpX9bIxGBt6Pao7/95lGJsvTjNovpq', 1, 'contact@bobcatrobotics.org', 'Bobcat Robotics', '', 1);
 
 --
 -- Indexes for dumped tables

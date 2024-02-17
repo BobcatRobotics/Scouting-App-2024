@@ -7,10 +7,10 @@
 // $stmt1 = $result1->fetch_assoc();
 // $admin = $stmt1['admin'];
 
-if ($_SESSION['admin'] == 0){
-    header('Location: ../login.php');
-    exit;
-}
+// if ($_SESSION['admin'] == 0){
+//     header('Location: ../login.php');
+//     exit;
+// }
 
 
 ?>
