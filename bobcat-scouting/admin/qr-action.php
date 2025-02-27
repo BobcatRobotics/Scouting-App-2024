@@ -16,7 +16,7 @@ if (isset($qr)) {
     $exploded = explode($separator, $_GET['qr']); 
 
     $size11= sizeof($exploded);
-    echo $size11;
+    // echo $size11;
  $size12= $size11-1;
   //  echo $size12;
 
@@ -75,8 +75,12 @@ $exploded[$size12]=preg_replace('/[^A-Za-z0-9 ]/', '', $exploded[$size12]);
                 
                 $k = "`".implode("`, `", array_values($key)) . "`";
                 $v = "'" . implode("', '", array_values($exploded)) . "'";
+
+               print_r($k);
+               print("\n");
+               print_r($v);
                 
-                echo $v . "\n <br>";
+              //   echo $k . "\n <br>";
               //  echo $v;
                 $sql001 = "INSERT INTO sdata ( $k )
                 VALUES ( $v )";

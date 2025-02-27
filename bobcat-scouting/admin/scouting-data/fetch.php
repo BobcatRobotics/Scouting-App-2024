@@ -37,9 +37,9 @@ $query = "SELECT * FROM sdata ";
 if(isset($_POST["search"]["value"]))
 {
  $query .= '
- WHERE `name` LIKE "%'.$_POST["search"]["value"].'%" 
- OR `match` LIKE "%'.$_POST["search"]["value"].'%" 
- OR `team` LIKE "%'.$_POST["search"]["value"].'%" 
+ WHERE `si` LIKE "%'.$_POST["search"]["value"].'%" 
+ OR `mn` LIKE "%'.$_POST["search"]["value"].'%" 
+ OR `tn` LIKE "%'.$_POST["search"]["value"].'%" 
 
  ';
 }
@@ -50,7 +50,7 @@ if(isset($_POST["order"]) && $_POST["order"]!='level')
 }
 else
 {
- $query .= 'ORDER BY `match` ASC ';
+ $query .= 'ORDER BY `mn` ASC ';
 }
 $query1 = '';
 
